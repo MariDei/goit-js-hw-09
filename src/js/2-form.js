@@ -8,9 +8,9 @@ form.addEventListener('submit', onFormSubmit);
 
 let dataForm = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 const { email, message } = form.elements;
-reloadPage();
+savedPage();
 
-function reloadPage() {
+function savedPage() {
   if (dataForm) {
     email.value = dataForm.email || '';
     message.value = dataForm.message || '';
