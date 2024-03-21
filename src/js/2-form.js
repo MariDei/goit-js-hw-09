@@ -10,19 +10,19 @@ let dataForm = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 const { email, message } = form.elements;
 reloadPage();
 
+function reloadPage() {
+  if (dataForm) {
+    email.value = dataForm.email || '';
+    message.value = dataForm.message || '';
+  }
+}
+
 function onInputData(event) {
   dataForm = {
     email: form.elements.email.value.trim(),
     message: form.elements.message.value.trim(),
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dataForm));
-}
-
-function reloadPage() {
-  if (dataForm) {
-    email.value = dataForm.email || '';
-    message.value = dataForm.message || '';
-  }
 }
 
 function onFormSubmit(event) {
